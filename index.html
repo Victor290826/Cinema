@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haras VM</title>
+    <style>
+        :root { 
+            --cor-fundo: #fff0f3;
+            --cor-texto: #590d22;
+            --cor-destaque: #c9184a;
+            --cor-botao: #ff4d6d;
+            --cor-card: #f5f5f5;
+            --cor-card-hover: #e0e0e0;
+            --cor-card-border: #ddd;
+            --cor-card-shadow: rgba(0, 0, 0, 0.2);
+            --cor-card-radius: 10px;
+            --cor-card-padding: 20px;
+            --cor-marrom: #4A3525;
+            --cor-marrom-claro: #A67B5B;
+            --cor-marrom-escuro: #3E2723;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--cor-texto);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 15px;
+            background: radial-gradient(circle at center, #fff0f3 0%, #f5f5f5 40%, #3E2723 100%);
+            background-attachment: fixed;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .tela {
+            display: none;
+        }
+        .tela-ativa {
+            display: block;
+        }
+        .card-menu {
+            background-color: var(--cor-card);
+            border: 1px solid var(--cor-card-border);
+            border-radius: var(--cor-card-radius);
+            padding: var(--cor-card-padding);
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px var(--cor-card-shadow);
+        }
+        .card-menu:hover {
+            background-color: var(--cor-card-hover);    
+        }
+        .card-foto-slide {
+            text-align: center;
+            margin: 20px 0;
+            background-color: var(--cor-card);
+            padding: 15px;
+            border-radius: var(--cor-card-radius);
+        }
+        .card-foto-slide img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--cor-card-radius);
+        }
+        .categoria-tag {
+            display: inline-block;
+            background-color: var(--cor-destaque);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .btn-voltar {
+            background-color: var(--cor-botao);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .btn-voltar:hover {
+            background-color: var(--cor-destaque);
+        }
+        h1.titulo, h2.titulo {
+            color: var(--cor-marrom-claro);
+            font-size: 2rem;
+        }
+        .subtitulo {
+            color: var(--cor-texto);
+            font-size: 1.2rem;
+        }
+        .card-titulo {
+            color: var(--cor-marrom-claro);
+            font-size: 1.5rem;
+            margin: 0; 
+        }
+        .card-desc {
+            color: var(--cor-texto);
+            font-size: 1.1rem;
+        }
+        .btn-add-carrinho {
+            background-color: var(--cor-destaque);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-add-carrinho:hover {
+            background-color: var(--cor-botao);
+        }
+        .btn-anterior, .btn-proximo {
+            background-color: var(--cor-marrom-claro);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 10px 5px 0 5px;
+        }
+        .btn-anterior:hover, .btn-proximo:hover {
+            background-color: var(--cor-marrom-escuro);
+        }
+        .item-carrinho {
+            background: #fff;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Bem-vindo ao Haras VM</h1>
+        <p class="subtitulo">Desfrute dos nossos melhores animais!</p>
+        
+        <!-- Menu Principal -->
+        <div id="tela-menu" class="tela tela-ativa">
+            <h2 class="titulo">Menu Principal</h2>
+            <p class="subtitulo">Escolha uma opção</p>        
+          
+            <div class="card-menu" onclick="abrirTela('tela-cavalos')">
+               <h3 class="card-titulo">Cavalos</h3>
+               <p class="card-desc">Explore nossa seleção de cavalos</p>
+            </div>
+            <div class="card-menu" onclick="abrirTela('tela-bois')">
+               <h3 class="card-titulo">Bois</h3>
+               <p class="card-desc">Conheça nossos bois de corte e de leite.</p>
+            </div>
+            <div class="card-menu" onclick="abrirTela('tela-carrinho')">
+               <h3 class="card-titulo">Carrinho</h3>
+               <p class="card-desc">Veja os produtos que você adicionou.</p>
+            </div>
+            <div class="card-menu" onclick="abrirTela('tela-contato')">
+               <h3 class="card-titulo">Contato</h3>
+               <p class="card-desc">Entre em contato conosco</p>
+            </div>
+        </div>
+    
+        <!-- Submenu Cavalos -->
+        <div id="tela-cavalos" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Cavalos</h2>
+            <p class="card-desc">Escolha a melhor opção de raça de acordo com o seu objetivo.</p>
+
+            <div class="card-menu" onclick="abrirTela('tela-manga-larga')">
+               <h3 class="card-titulo">Mangalarga Marchador</h3>
+               <p class="card-desc">Raça ideal para competições de marcha.</p>
+            </div>
+            <div class="card-menu" onclick="abrirTela('tela-quarto-milha')">
+               <h3 class="card-titulo">Quarto de Milha</h3>
+               <p class="card-desc">Raça rápida para corridas curtas.</p>
+            </div>
+            <div class="card-menu" onclick="abrirTela('tela-campolino')">
+               <h3 class="card-titulo">Campolina</h3>
+               <p class="card-desc">Raça resistente para trabalho em campo.</p>
+            </div>
+        </div>
+        
+        <!-- Tela Mangalarga -->
+        <div id="tela-manga-larga" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Mangalarga Marchador</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Mangalarga</div>
+                <img src="1.png" alt="Cavalo Mangalarga">
+                <p class="card-desc">1. Preto - R$ 25.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Preto', 25000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Mangalarga</div>
+                <img src="1.png" alt="Cavalo Mangalarga Tordilho">
+                <p class="card-desc">2. Tordilho - R$ 25.000,00</p>
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Tordilho', 25000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Tela Quarto de Milha -->
+        <div id="tela-quarto-milha" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Quarto de Milha</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Quarto de Milha</div>
+                <img src="1.png" alt="Quarto de Milha">
+                <p class="card-desc">1. Preto - R$ 25.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Preto', 25000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Tela Campolina -->
+        <div id="tela-campolino" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Campolina</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Campolina</div>
+                <img src="1.png" alt="Campolina">
+                <p class="card-desc">1. Castanho - R$ 25.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Campolina Castanho', 25000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Submenu Bois -->
+        <div id="tela-bois" class="tela">
+           <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+           <h2 class="card-titulo">Bois</h2>
+           <p class="card-desc">Escolha a melhor opção</p>
+
+           <div class="card-menu" onclick="abrirTela('tela-nelore')">
+              <h3 class="card-titulo">Nelore</h3>
+           </div>
+           <div class="card-menu" onclick="abrirTela('tela-holandes')">
+              <h3 class="card-titulo">Holandês</h3>
+           </div>
+           <div class="card-menu" onclick="abrirTela('tela-gir-leiteiro')">
+              <h3 class="card-titulo">Gir Leiteiro</h3>
+           </div>
+        </div>
+
+        <!-- Tela Nelore -->
+        <div id="tela-nelore" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Nelore</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Nelore</div>
+                <img src="1.png" alt="Boi Nelore">
+                <p class="card-desc">1. Nelore PO - R$ 15.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Boi Nelore PO', 15000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Tela Holandês -->
+        <div id="tela-holandes" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Holandês</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Holandês</div>
+                <img src="1.png" alt="Boi Holandês">
+                <p class="card-desc">1. Vaca Holandesa - R$ 18.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Vaca Holandesa', 18000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Tela Gir Leiteiro -->
+        <div id="tela-gir-leiteiro" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Gir Leiteiro</h2>
+
+            <div class="card-foto-slide">
+                <div class="categoria-tag">Gir Leiteiro</div>
+                <img src="1.png" alt="Gir Leiteiro">
+                <p class="card-desc">1. Touro Gir Leiteiro - R$ 20.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Touro Gir Leiteiro', 20000.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+
+        <!-- Tela Carrinho -->
+        <div id="tela-carrinho" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">O seu Carrinho</h2>
+            <div id="itens-carrinho"></div>
+            <h3 id="total-carrinho">Total: R$ 0,00</h3>
+        </div>
+
+        <!-- Tela Contato -->
+        <div id="tela-contato" class="tela">
+            <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
+            <h2 class="card-titulo">Contato</h2>
+            <p class="card-desc">Email: contacto@harasvm.com</p>
+            <p class="card-desc">Telefone: (00) 99999-9999</p>
+        </div>
+    </div>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        let historico = ['tela-menu'];
+        let carrinho = [];
+
+        function abrirTela(idTela) {
+            if (!idTela) return;
+            
+            const telaAtual = historico[historico.length - 1];
+            document.getElementById(telaAtual).classList.remove('tela-ativa');
+            
+            const novaTela = document.getElementById(idTela);
+            if (novaTela) {
+                novaTela.classList.add('tela-ativa');
+                historico.push(idTela);
+            }
+        }
+
+        function voltarPagina() {
+            if (historico.length > 1) {
+                const telaAtual = historico.pop();
+                document.getElementById(telaAtual).classList.remove('tela-ativa');
+                
+                const telaAnterior = historico[historico.length - 1];
+                document.getElementById(telaAnterior).classList.add('tela-ativa');
+            }
+        }
+
+        function adicionarAoCarrinho(nome, preco) {
+            carrinho.push({ nome, preco });
+            alert(`${nome} adicionado ao carrinho!`);
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            const container = document.getElementById('itens-carrinho');
+            const totalEl = document.getElementById('total-carrinho');
+            
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p class="card-desc">O carrinho está vazio.</p>';
+                totalEl.innerText = 'Total: R$ 0,00';
+                return;
+            }
+
+            container.innerHTML = '';
+            let total = 0;
+
+            carrinho.forEach((item) => {
+                total += item.preco;
+                const div = document.createElement('div');
+                div.className = 'item-carrinho';
+                div.innerHTML = `<span>${item.nome}</span> <strong>R$ ${item.preco.toFixed(2)}</strong>`;
+                container.appendChild(div);
+            });
+
+            totalEl.innerText = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        // Inicializar carrinho ao carregar a página
+        atualizarCarrinho();
+    </script>
+</body>
+</html>
