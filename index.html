@@ -129,20 +129,6 @@
         .btn-add-carrinho:hover {
             background-color: var(--cor-botao);
         }
-        .btn-anterior, .btn-proximo {
-            background-color: var(--cor-marrom-claro);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            margin: 10px 5px 0 5px;
-        }
-        .btn-anterior:hover, .btn-proximo:hover {
-            background-color: var(--cor-marrom-escuro);
-        }
         .item-carrinho {
             background: #fff;
             padding: 10px;
@@ -201,48 +187,90 @@
             </div>
         </div>
         
-        <!-- Tela Mangalarga -->
+        <!-- Tela Mangalarga com várias cores -->
         <div id="tela-manga-larga" class="tela">
             <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
             <h2 class="card-titulo">Mangalarga Marchador</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Mangalarga</div>
-                <img src="1.png" alt="Cavalo Mangalarga">
+                <span class="categoria-tag">Mangalarga</span>
+                <img src="cpreto.webp" alt="Cavalo Mangalarga Preto">
                 <p class="card-desc">1. Preto - R$ 25.000,00</p> 
                 <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Preto', 25000.00)">Adicionar ao Carrinho</button>
             </div>
             <div class="card-foto-slide">
-                <div class="categoria-tag">Mangalarga</div>
-                <img src="1.png" alt="Cavalo Mangalarga Tordilho">
+                <span class="categoria-tag">Mangalarga</span>
+                <img src="ctordilho.png" alt="Cavalo Mangalarga Tordilho">
                 <p class="card-desc">2. Tordilho - R$ 25.000,00</p>
                 <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Tordilho', 25000.00)">Adicionar ao Carrinho</button>
             </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Mangalarga</span>
+                <img src="ccastanho.jpg" alt="Cavalo Mangalarga Castanho">
+                <p class="card-desc">3. Castanho - R$ 24.000,00</p>
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Castanho', 24000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Mangalarga</span>
+                <img src="calazao.png" alt="Cavalo Mangalarga Alazão">
+                <p class="card-desc">4. Alazão - R$ 26.000,00</p>
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Alazão', 26000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Mangalarga</span>
+                <img src="cpampa.png" alt="Cavalo Mangalarga Pampa">
+                <p class="card-desc">5. Pampa - R$ 28.000,00</p>
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Mangalarga Pampa', 28000.00)">Adicionar ao Carrinho</button>
+            </div>
         </div>
 
-        <!-- Tela Quarto de Milha -->
+        <!-- Tela Quarto de Milha com várias cores -->
         <div id="tela-quarto-milha" class="tela">
             <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
             <h2 class="card-titulo">Quarto de Milha</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Quarto de Milha</div>
-                <img src="1.png" alt="Quarto de Milha">
-                <p class="card-desc">1. Preto - R$ 25.000,00</p> 
-                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Preto', 25000.00)">Adicionar ao Carrinho</button>
+                <span class="categoria-tag">Quarto de Milha</span>
+                <img src="qmpreto.jpg" alt="Quarto de Milha Preto">
+                <p class="card-desc">1. Preto - R$ 27.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Preto', 27000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Quarto de Milha</span>
+                <img src="qmtordilho.png" alt="Quarto de Milha Tordilho">
+                <p class="card-desc">2. Tordilho - R$ 30.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Tordilho', 30000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Quarto de Milha</span>
+                <img src="qmcastanho.png" alt="Quarto de Milha Castanho Escuro">
+                <p class="card-desc">3. Castanho Escuro - R$ 26.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Castanho Escuro', 26000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Quarto de Milha</span>
+                <img src="qmpaolmino.jpg" alt="Quarto de Milha Palomino">
+                <p class="card-desc">4. Baio / Palomino - R$ 32.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Quarto de Milha Palomino', 32000.00)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
-        <!-- Tela Campolina -->
+        <!-- Tela Campolina com várias cores -->
         <div id="tela-campolino" class="tela">
             <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
             <h2 class="card-titulo">Campolina</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Campolina</div>
-                <img src="1.png" alt="Campolina">
-                <p class="card-desc">1. Castanho - R$ 25.000,00</p> 
-                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Campolina Castanho', 25000.00)">Adicionar ao Carrinho</button>
+                <span class="categoria-tag">Campolina</span>
+                <img src="cpcastanho.jpg" alt="Campolina Castanho">
+                <p class="card-desc">1. Castanho - R$ 22.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Campolina Castanho', 22000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Campolina</span>
+                <img src="cpbaio.jpg" alt="Campolina Baio">
+                <p class="card-desc">2. Baio - R$ 24.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Campolina Baio', 24000.00)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
@@ -269,10 +297,16 @@
             <h2 class="card-titulo">Nelore</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Nelore</div>
-                <img src="1.png" alt="Boi Nelore">
-                <p class="card-desc">1. Nelore PO - R$ 15.000,00</p> 
-                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Boi Nelore PO', 15000.00)">Adicionar ao Carrinho</button>
+                <span class="categoria-tag">Nelore</span>
+                <img src="nbranco.jpg" alt="Boi Nelore Branco">
+                <p class="card-desc">1. Nelore PO Branco - R$ 15.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Boi Nelore PO Branco', 15000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Nelore</span>
+                <img src="ncinza.png" alt="Boi Nelore Cinza">
+                <p class="card-desc">1. Nelore PO Cinza - R$ 15.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Boi Nelore PO Cinza', 15000.00)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
@@ -282,10 +316,16 @@
             <h2 class="card-titulo">Holandês</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Holandês</div>
-                <img src="1.png" alt="Boi Holandês">
-                <p class="card-desc">1. Vaca Holandesa - R$ 18.000,00</p> 
-                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Vaca Holandesa', 18000.00)">Adicionar ao Carrinho</button>
+                <span class="categoria-tag">Holandês</span>
+                <img src="hpreta.jpg" alt="Vaca Holandês Preta e Branca">
+                <p class="card-desc">1. Vaca Holandesa Preta e Branca - R$ 18.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Vaca Holandesa Preta e Branca', 18000.00)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="card-foto-slide">
+                <span class="categoria-tag">Holandês</span>
+                <img src="hvermelha.webp" alt="Vaca Holandêsa Vermelha e Branca">
+                <p class="card-desc">1. Vaca Holandesa Vermelha e Branca - R$ 18.000,00</p> 
+                <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Vaca Holandesa Vermelha e Branca', 18000.00)">Adicionar ao Carrinho</button>
             </div>
         </div>
 
@@ -295,8 +335,8 @@
             <h2 class="card-titulo">Gir Leiteiro</h2>
 
             <div class="card-foto-slide">
-                <div class="categoria-tag">Gir Leiteiro</div>
-                <img src="1.png" alt="Gir Leiteiro">
+                <span class="categoria-tag">Gir Leiteiro</span>
+                <img src="gvermelha.jpg" alt="Gir Leiteiro">
                 <p class="card-desc">1. Touro Gir Leiteiro - R$ 20.000,00</p> 
                 <button class="btn-add-carrinho" onclick="adicionarAoCarrinho('Touro Gir Leiteiro', 20000.00)">Adicionar ao Carrinho</button>
             </div>
@@ -314,38 +354,53 @@
         <div id="tela-contato" class="tela">
             <button class="btn-voltar" onclick="voltarPagina()">Voltar</button>
             <h2 class="card-titulo">Contato</h2>
-            <p class="card-desc">Email: contacto@harasvm.com</p>
+            <p class="card-desc">Email: contato@harasvm.com</p>
             <p class="card-desc">Telefone: (00) 99999-9999</p>
         </div>
     </div>
 
-    <!-- Lógica JavaScript -->
+    <!-- Script com suporte ao botão voltar do celular -->
     <script>
-        let historico = ['tela-menu'];
         let carrinho = [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            history.replaceState({ tela: 'tela-menu' }, '');
+        });
 
         function abrirTela(idTela) {
             if (!idTela) return;
             
-            const telaAtual = historico[historico.length - 1];
-            document.getElementById(telaAtual).classList.remove('tela-ativa');
+            const telaAtual = document.querySelector('.tela-ativa');
+            if (telaAtual) {
+                telaAtual.classList.remove('tela-ativa');
+            }
             
             const novaTela = document.getElementById(idTela);
             if (novaTela) {
                 novaTela.classList.add('tela-ativa');
-                historico.push(idTela);
+                history.pushState({ tela: idTela }, '');
             }
         }
 
         function voltarPagina() {
-            if (historico.length > 1) {
-                const telaAtual = historico.pop();
-                document.getElementById(telaAtual).classList.remove('tela-ativa');
-                
-                const telaAnterior = historico[historico.length - 1];
-                document.getElementById(telaAnterior).classList.add('tela-ativa');
-            }
+            window.history.back();
         }
+
+        window.addEventListener('popstate', (event) => {
+            const telaAtual = document.querySelector('.tela-ativa');
+            if (telaAtual) {
+                telaAtual.classList.remove('tela-ativa');
+            }
+
+            if (event.state && event.state.tela) {
+                const telaDestino = document.getElementById(event.state.tela);
+                if (telaDestino) {
+                    telaDestino.classList.add('tela-ativa');
+                }
+            } else {
+                document.getElementById('tela-menu').classList.add('tela-ativa');
+            }
+        });
 
         function adicionarAoCarrinho(nome, preco) {
             carrinho.push({ nome, preco });
@@ -377,7 +432,6 @@
             totalEl.innerText = `Total: R$ ${total.toFixed(2)}`;
         }
 
-        // Inicializar carrinho ao carregar a página
         atualizarCarrinho();
     </script>
 </body>
